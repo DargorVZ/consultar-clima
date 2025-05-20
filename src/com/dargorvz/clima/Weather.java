@@ -1,3 +1,5 @@
+package com.dargorvz.clima;
+
 public class Weather {
     private String description;
 

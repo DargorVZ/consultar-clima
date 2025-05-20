@@ -1,3 +1,5 @@
+package com.dargorvz.clima;
+
 public class Main {
     private double temp;
     private int humidity;

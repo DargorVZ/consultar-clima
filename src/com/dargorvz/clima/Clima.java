@@ -1,3 +1,5 @@
+package com.dargorvz.clima;
+
 public record Clima(String name,
                     double temp,
                     int humidity,

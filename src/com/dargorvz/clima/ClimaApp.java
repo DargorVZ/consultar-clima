@@ -1,3 +1,5 @@
+package com.dargorvz.clima;
+
 import java.util.Scanner;
 
 public class ClimaApp {
