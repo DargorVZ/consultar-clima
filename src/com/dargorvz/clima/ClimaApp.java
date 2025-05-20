@@ -8,14 +8,28 @@ public class ClimaApp {
         ClimaApi buscarCiudad = new ClimaApi();
 
         System.out.println("************************************************");
-        System.out.println("Ingrese a continuación su ciudad:");
-        String ciudad = scanner.nextLine();
+        System.out.println("🌦 Bienvenido/a al Consultor del Clima");
 
-        try{
-            Clima clima = buscarCiudad.obtenerClima(ciudad);
-            System.out.println(clima.toString());
-        } catch (RuntimeException e){
-            System.out.println("Ocurrio un error: " + e.getMessage() + "/n");
+        boolean menu = true;
+        while (menu) {
+            System.out.println("\nIngrese el nombre de una ciudad (o escriba 'salir' para terminar):");
+            String ciudad = scanner.nextLine().trim();
+
+            if (ciudad.equalsIgnoreCase("salir")) {
+                menu = false;
+                System.out.println("Gracias por usar la app del clima. ¡Hasta pronto!");
+                continue;
+            }
+
+            try {
+                Clima clima = buscarCiudad.obtenerClima(ciudad);
+                System.out.println("\n🌍 Resultado:");
+                System.out.println(clima);
+            } catch (RuntimeException e) {
+                System.out.println("⚠️ Ocurrió un error: " + e.getMessage() + "\n");
+            }
         }
+
+        scanner.close();
     }
 }
